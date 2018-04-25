@@ -9,7 +9,8 @@
         "noImplicitAny": true,
         "suppressImplicitAnyIndexErrors": true,
         "types": [
-            "node"
+            "node",
+            "jasmine"
         ],
         "typeRoots": [
             "../node_modules/@types"
