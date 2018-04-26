@@ -8,13 +8,26 @@
     padding: 10px;
     @include background-color($primary-background-color);
     @include border-radius(30px);
-    @include flex-parent(row, center, center, flex-start, nowrap);
+    @include flex-parent(row, center, center, center, wrap);
+    .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
     .image {
         @include border-radius(30px);
         margin-right: 50px;
     }
     .oldValues {
-        @include flex-parent(column, ∑center, flex-start, flex-start, wrap);
+        border-width: 1px;
+        border-style: solid;
+        border-color: $orange;
+        max-width: 300px;
+        margin-right: 50px;
+        padding: 5px;
+        @include border-radius(30px);
+        @include flex-parent(column, center, flex-start, flex-start, wrap);
         .nickName {
             padding: 5px;
             @include font($red, 26px, bold);
@@ -26,6 +39,61 @@
         .tall {
             padding: 5px;
             @include font($gray-text, 22px, normal);
+        }
+        .linkImage {
+            width: 300px;
+            padding: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include font($gray-text, 22px, normal);
+        }
+    }
+    .newValues {
+        max-width: 300px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: $orange;
+        padding: 5px;
+        @include border-radius(30px);
+        @include flex-parent(column, center, flex-start, flex-start, wrap);
+        .nickName {
+            width: 290px;
+            margin: 5px;
+            @include font($black, 26px, bold);
+        }
+        .Name {
+            width: 290px;
+            margin: 5px;
+            @include font($black, 22px, normal);
+        }
+        .tall {
+            width: 290px;
+            margin: 5px;
+            @include font($black, 22px, normal);
+        }
+        .linkImage {
+            width: 290px;
+            margin: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include font($black, 22px, normal);
+        }
+        input {
+            cursor: text;
+            border-width: 1px;
+            border-style: solid;
+            border-color: $orange;
+            border-image: initial;
+            background-color: $white-transparency;
+            text-rendering: auto;
+            color: initial;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
         }
     }
 }
