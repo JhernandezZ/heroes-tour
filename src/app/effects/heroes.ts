@@ -15,14 +15,14 @@ export class HeroesEffects {
     constructor(private actions$: Actions, private heroesService: HeroesService) { }
 
     @Effect()
-    login$: Observable<Action> = this.actions$.pipe(
+    getHeroes$: Observable<Action> = this.actions$.pipe(
         ofType<GetList>(HeroesActionTypes.getList),
         switchMap(() => {
             return this.heroesService
                 .getHeroList()
                 .pipe(
                     map((heroesData: Array<Hero>) => {
-                    return new GetListSuccess(heroesData);
+                        return new GetListSuccess(heroesData);
                     })
                 );
         })
