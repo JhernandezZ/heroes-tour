@@ -11,11 +11,11 @@ const initialState: State = {
 
 export function reducer(state: State = initialState, action: HeroesActions): State {
     switch (action.type) {
-        case HeroesActionTypes.GetList:
+        case HeroesActionTypes.getList:
             return state;
-    
         
-        case HeroesActionTypes.GetListSuccess:
+        case HeroesActionTypes.getListSuccess:
+            state.list = action.payload
             return state;
     
         default:

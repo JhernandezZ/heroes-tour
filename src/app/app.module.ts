@@ -10,6 +10,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { reducers } from './reducers';
+import { HeroesEffects } from './effects/heroes';
+import { HeroesService } from './shared/services/heroes.service';
 
 import { AppComponent } from './app.component';
 import { HeroesListComponent } from './components/herores-list/heroes-list.component';
@@ -21,7 +23,6 @@ const appRoutes: Routes = [
     }
 ];
 
-
 @NgModule({
     imports: [
         BrowserModule,
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
         HttpModule,
         RouterModule.forRoot(appRoutes),
         StoreModule.forRoot(reducers),
+        EffectsModule.forRoot([HeroesEffects])
     ],
     declarations: [
         AppComponent,
@@ -38,6 +40,9 @@ const appRoutes: Routes = [
     ],
     bootstrap: [
         AppComponent
+    ],
+    providers: [
+        HeroesService
     ]
 })
 export class AppModule { }
