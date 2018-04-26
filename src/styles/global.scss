@@ -2,6 +2,11 @@
  * Global Application Styles
  */
 
+body {
+    background: url('../assets/images/marvel-avengers-infinity-war.jpg');
+    height: 100%;
+}
+
 // flexbox
 @mixin flex($direction, $alignContent, $alignItems, $justifyContent, $flexWrap) {
     display: flex;
