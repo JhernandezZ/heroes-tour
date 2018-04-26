@@ -5,16 +5,17 @@
     <img class="image" src="{{hero._picture}}">
     <!-- {{hero | json}} -->
     <div class="oldValues">
+        <span class="title">Datos del Heroe</span>
         <span class="nickName">{{hero._nickname}}</span>
         <span class="Name">{{hero._name}}</span>
         <span class="tall">{{hero._height | mt}}</span>
         <span class="linkImage">{{hero._picture}}</span>
     </div>
     <div class="newValues">
-        <span class="nickName">Editar Heroe</span>
+        <span class="title">Editar Heroe</span>
         <input class="nickName" type="text" placeholder="{{hero._nickname}}">
         <input class="Name" type="text" placeholder="{{hero._name}}">
-        <input class="tall" type="text" placeholder="{{hero._height | mt}}">
+        <input class="tall" type="text" placeholder="{{hero._height}}ft">
         <input class="linkImage" type="text" placeholder="{{hero._picture}}">
     </div>
 </div>
