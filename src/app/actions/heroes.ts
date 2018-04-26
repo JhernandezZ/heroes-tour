@@ -2,14 +2,12 @@ import { Action } from '@ngrx/store';
 import { Hero } from '../shared/models/heroes';
 
 export enum HeroesActionTypes {
-    getList = '[heroes] Get list success',
+    getList = '[heroes] Get list',
     getListSuccess = '[heroes] Get list success'
 }
 
 export class GetList implements Action {
     readonly type = HeroesActionTypes.getList
-
-    constructor(public payload?: Array<Hero>) { }
 }
 
 export class GetListSuccess implements Action {

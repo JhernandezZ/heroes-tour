@@ -22,5 +22,6 @@ export class HeroesListComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.store.dispatch( new Heroes.GetList);
     }
 }

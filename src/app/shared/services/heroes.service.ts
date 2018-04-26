@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class HeroesService {
-    private API_PATH = 'https://udem.herokuapp.com/';
+    private API_PATH = 'https://udem.herokuapp.com';
 
     constructor(private http: HttpClient) { }
 

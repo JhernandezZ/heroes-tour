@@ -16,8 +16,7 @@ export class HeroesEffects {
 
     @Effect()
     login$: Observable<Action> = this.actions$.pipe(
-        ofType<GetList>(HeroesActionTypes.GetList),
-        // map(action => action.payload),
+        ofType<GetList>(HeroesActionTypes.getList),
         switchMap(() => {
             return this.heroesService
                 .getHeroList()
@@ -25,7 +24,6 @@ export class HeroesEffects {
                     map((heroesData: Array<Hero>) => {
                     return new GetListSuccess(heroesData);
                     })
-                    // catchError(err => of(new SearchError(err)))
                 );
         })
     );

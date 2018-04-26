@@ -30,6 +30,10 @@ const appRoutes: Routes = [
         HttpModule,
         HttpClientModule,
         HttpModule,
+        StoreDevtoolsModule.instrument({
+            logOnly: false
+        }),
+        StoreDevtoolsModule.instrument(),
         RouterModule.forRoot(appRoutes),
         StoreModule.forRoot(reducers),
         EffectsModule.forRoot([HeroesEffects])
