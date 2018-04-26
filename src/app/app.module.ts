@@ -18,11 +18,16 @@ import { HeroesListComponent } from './components/herores-list/heroes-list.compo
 import { HeroesListItemComponent } from './components/hero-list-item/hero-list-item.component';
 import { RankPipe } from './shared/pipes/rank';
 import { UnitPipe } from './shared/pipes/unit-convertion';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail-component';
 
 const appRoutes: Routes = [
     {
         path: '',
         component: HeroesListComponent
+    },
+    {
+        path: 'hero/:heroName',
+        component: HeroDetailComponent
     }
 ];
 
@@ -41,6 +46,7 @@ const appRoutes: Routes = [
         AppComponent,
         HeroesListComponent,
         HeroesListItemComponent,
+        HeroDetailComponent,
         RankPipe,
         UnitPipe
     ],

@@ -1,0 +1,31 @@
+@import "../../../styles/global";
+.heroDetail {
+    position: absolute;
+    top: 0;
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    margin: 20px;
+    padding: 10px;
+    @include background-color($primary-background-color);
+    @include border-radius(30px);
+    @include flex-parent(row, center, center, flex-start, nowrap);
+    .image {
+        @include border-radius(30px);
+        margin-right: 50px;
+    }
+    .oldValues {
+        @include flex-parent(column, ∑center, flex-start, flex-start, wrap);
+        .nickName {
+            padding: 5px;
+            @include font($red, 26px, bold);
+        }
+        .Name {
+            padding: 5px;
+            @include font($gray-text, 22px, normal);
+        }
+        .tall {
+            padding: 5px;
+            @include font($gray-text, 22px, normal);
+        }
+    }
+}

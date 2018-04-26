@@ -15,7 +15,11 @@ import { Hero } from '../../shared/models/heroes';
 export class HeroesListItemComponent {
     @Input() hero: Hero;
     @Input() index: number;
-    
-    constructor() {
+
+    constructor(private router: Router) {
+    }
+
+    heroDetail (nickNmae: string) {
+        this.router.navigateByUrl(`hero/${nickNmae}`);
     }
 }

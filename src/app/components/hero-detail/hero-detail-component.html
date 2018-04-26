@@ -1,0 +1,10 @@
+<div class="heroDetail" *ngIf="hero" (click)="back()">
+    <img class="image" src="{{hero._picture}}">
+    <!-- {{hero | json}} -->
+    <div class="oldValues">
+        <span class="nickName">{{hero._nickname}}</span>
+        <span class="Name">{{hero._name}}</span>
+        <span class="tall">{{hero._height | mt}}</span>
+    </div>
+    <div class="newValues"></div>
+</div>
