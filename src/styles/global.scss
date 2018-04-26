@@ -2,7 +2,11 @@
  * Global Application Styles
  */
 
+@import "colors";
+
 body {
+    margin: 0;
+    padding: 0;
     background: url('../assets/images/marvel-avengers-infinity-war.jpg');
     height: 100%;
 }

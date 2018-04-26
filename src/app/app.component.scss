@@ -1,0 +1,10 @@
+@import "../styles/global";
+.app {
+    position: fixed;
+    top: 100px;
+    width: calc(100% - 40px);
+    height: calc(100% - 105px);
+    margin: 0px 20px;
+    background: $primary-background-color;
+    border-radius: 20px;
+}
