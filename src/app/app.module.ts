@@ -15,6 +15,9 @@ import { HeroesService } from './shared/services/heroes.service';
 
 import { AppComponent } from './app.component';
 import { HeroesListComponent } from './components/herores-list/heroes-list.component';
+import { HeroesListItemComponent } from './components/hero-list-item/hero-list-item.component';
+import { RankPipe } from './shared/pipes/rank';
+import { UnitPipe } from './shared/pipes/unit-convertion';
 
 const appRoutes: Routes = [
     {
@@ -30,17 +33,16 @@ const appRoutes: Routes = [
         HttpModule,
         HttpClientModule,
         HttpModule,
-        StoreDevtoolsModule.instrument({
-            logOnly: false
-        }),
-        StoreDevtoolsModule.instrument(),
         RouterModule.forRoot(appRoutes),
         StoreModule.forRoot(reducers),
         EffectsModule.forRoot([HeroesEffects])
     ],
     declarations: [
         AppComponent,
-        HeroesListComponent
+        HeroesListComponent,
+        HeroesListItemComponent,
+        RankPipe,
+        UnitPipe
     ],
     bootstrap: [
         AppComponent

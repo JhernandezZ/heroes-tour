@@ -10,7 +10,7 @@ import * as Heroes from '../../actions/heroes'
 import { Hero } from '../../shared/models/heroes';
 
 @Component({
-    selector: 'app-side-bar',
+    selector: 'app-hero-list',
     templateUrl: './heroes-list.component.html',
     styleUrls: ['./heroes-list.component.scss']
 })

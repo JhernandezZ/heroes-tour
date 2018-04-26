@@ -2,8 +2,17 @@
     border-radius: $radius;
 }
 
-// flexbox
-@mixin flex($direction, $alignContent, $alignItems, $justifyContent, $flexWrap) {
+@mixin background-color($color) {
+    background-color: $color;
+}
+
+@mixin font($color, $fontSize, $fontWeight) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+@mixin flex-parent($direction, $alignContent, $alignItems, $justifyContent, $flexWrap) {
     display: flex;
     flex-direction: $direction;
     align-content: $alignContent;
@@ -12,7 +21,6 @@
     flex-wrap: $flexWrap;
 }
 
-/* 
-.box {
-    @include border-radius(10px);
-} */
+@mixin flex-child($flex-grow, $flex-shrink, $flex-basis) {
+    flex: $flex-grow $flex-shrink $flex-basis;
+}

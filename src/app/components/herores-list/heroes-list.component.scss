@@ -1,13 +1,16 @@
 @import "../../../styles/global";
-
-
- .heroesList {
+.heroesList {
     position: fixed;
     top: 100px;
     width: calc(100% - 60px);
     height: calc(100% - 115px);
     margin: 0px 20px;
     padding: 10px;
-    background: $primary-background-color;
+    @include background-color($primary-background-color);
     @include border-radius(30px);
+    @include flex-parent(row, flex-start, center, flex-start, wrap);
+    overflow-y: auto;
+    .heroItem {
+        @include flex-child(1, 0, 400px);
+    }
 }

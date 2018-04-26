@@ -1,3 +1,5 @@
 <div class="heroesList">
-    {{ (heroesList$ | async | json) }}
+    <app-hero-list-item *ngFor="let hero of (heroesList$ | async).list; let i = index" 
+    class="heroItem" [hero]="hero" [index]="i">
+    </app-hero-list-item>
 </div>
