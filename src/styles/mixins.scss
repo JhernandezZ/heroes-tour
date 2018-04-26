@@ -1,0 +1,18 @@
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+// flexbox
+@mixin flex($direction, $alignContent, $alignItems, $justifyContent, $flexWrap) {
+    display: flex;
+    flex-direction: $direction;
+    align-content: $alignContent;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+    flex-wrap: $flexWrap;
+}
+
+/* 
+.box {
+    @include border-radius(10px);
+} */

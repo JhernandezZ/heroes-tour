@@ -5,15 +5,20 @@ import { HttpModule } from '@angular/http'
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import { reducers } from './reducers';
+
 import { AppComponent } from './app.component';
+import { HeroesListComponent } from './components/herores-list/heroes-list.component';
 
 const appRoutes: Routes = [
-    /* {
+    {
         path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full',
-        component: DashboardComponent
-    } */
+        component: HeroesListComponent
+    }
 ];
 
 
@@ -25,9 +30,11 @@ const appRoutes: Routes = [
         HttpClientModule,
         HttpModule,
         RouterModule.forRoot(appRoutes),
+        StoreModule.forRoot(reducers),
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        HeroesListComponent
     ],
     bootstrap: [
         AppComponent

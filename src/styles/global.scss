@@ -3,25 +3,4 @@
  */
 
 @import "colors";
-
-body {
-    margin: 0;
-    padding: 0;
-    background: url('../assets/images/marvel-avengers-infinity-war.jpg');
-    height: 100%;
-}
-
-// flexbox
-@mixin flex($direction, $alignContent, $alignItems, $justifyContent, $flexWrap) {
-    display: flex;
-    flex-direction: $direction;
-    align-content: $alignContent;
-    align-items: $alignItems;
-    justify-content: $justifyContent;
-    flex-wrap: $flexWrap;
-}
-
-/* 
-.box {
-    @include border-radius(10px);
-} */
+@import "mixins";
