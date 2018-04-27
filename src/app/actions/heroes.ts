@@ -1,10 +1,10 @@
 import { Action } from '@ngrx/store';
-import { Hero } from '../shared/models/heroes';
+import { Hero, EditedHeroes } from '../shared/models/heroes';
 
 export enum HeroesActionTypes {
     getList = '[heroes] Get list',
     getListSuccess = '[heroes] Get list success',
-    getHero = '[herores] Get hero'
+    updateHero = '[herores] Update hero'
 }
 
 export class GetList implements Action {
@@ -17,10 +17,10 @@ export class GetListSuccess implements Action {
     constructor(public payload: Array<Hero>){}
 }
 
-export class GetHero implements Action {
-    readonly type = HeroesActionTypes.getHero
+export class UpdateHero implements Action {
+    readonly type = HeroesActionTypes.updateHero
 
-    constructor(public payload: string) {}
+    constructor(public payload: EditedHeroes) {}
 }
 
-export type HeroesActions = GetListSuccess | GetList | GetHero;
+export type HeroesActions = GetListSuccess | GetList | UpdateHero;

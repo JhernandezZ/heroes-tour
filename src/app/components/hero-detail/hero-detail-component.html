@@ -12,10 +12,10 @@
     </div>
     <div class="newValues">
         <span class="title">Editar Heroe</span>
-        <input class="nickName" type="text" placeholder="{{hero._nickname}}">
-        <input class="Name" type="text" placeholder="{{hero._name}}">
-        <input class="tall" type="text" placeholder="{{hero._height}}ft">
-        <input class="linkImage" type="text" placeholder="{{hero._picture}}">
+        <input class="nickName" type="text" placeholder="Nick Alias" [(ngModel)]="newHero._nickname">
+        <input class="Name" type="text" placeholder="Name" [(ngModel)]="newHero._name">
+        <input class="tall" type="number" placeholder="Tall" [(ngModel)]="newHero._height">
+        <input class="linkImage" type="text" placeholder="Picture" [(ngModel)]="newHero._picture">
     </div>
-    <div class="btnOk"> Guardar Cambios </div>
+    <div class="btnOk" (click)="saveChanges()"> Guardar Cambios </div>
 </div>

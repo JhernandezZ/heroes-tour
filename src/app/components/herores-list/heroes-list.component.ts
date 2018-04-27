@@ -14,14 +14,10 @@ import { Hero } from '../../shared/models/heroes';
     templateUrl: './heroes-list.component.html',
     styleUrls: ['./heroes-list.component.scss']
 })
-export class HeroesListComponent implements OnInit {
+export class HeroesListComponent {
     heroesList$: Observable<fromHeroes.State>
 
     constructor(private store: Store<fromRoot.State>) {
         this.heroesList$ = this.store.pipe( select(fromRoot.getHeroesList) );
-    }
-
-    ngOnInit() {
-        this.store.dispatch( new Heroes.GetList);
     }
 }

@@ -4,3 +4,7 @@ export interface Hero {
     _picture: string,
     _nickname: string
 }
+export interface EditedHeroes {
+    oldValues: Hero;
+    newValues: Hero
+}

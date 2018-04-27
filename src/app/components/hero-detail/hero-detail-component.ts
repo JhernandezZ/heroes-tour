@@ -7,7 +7,8 @@ import { Observable } from 'rxjs/Observable';
 import * as fromRoot from '../../reducers';
 import * as fromHeroes from '../../reducers/heroes';
 import * as Heroes from '../../actions/heroes'
-import { Hero } from '../../shared/models/heroes';
+import { Hero, EditedHeroes } from '../../shared/models/heroes';
+import { UpdateHero } from '../../actions/heroes';
 
 @Component({
     selector: 'app-hero-detail',
@@ -17,12 +18,20 @@ import { Hero } from '../../shared/models/heroes';
 })
 export class HeroDetailComponent implements OnInit{
     hero: Hero;
+    newHero: Hero;
     constructor(
         private store: Store<fromRoot.State>,
         private route: ActivatedRoute,
         private state: State<fromRoot.State>,
         private location: Location
-    ) {}
+    ) {
+        this.newHero = {
+            _nickname: '',
+            _name: '',
+            _height: '',
+            _picture: ''
+        };
+    }
     
     ngOnInit() {
         this.route.params.subscribe(params => {
@@ -31,6 +40,7 @@ export class HeroDetailComponent implements OnInit{
                 (item: Hero) => {
                     if (item._nickname === params.heroName) {
                         this.hero = item;
+                        this.newHero = item;
                     }
                 }
             );
@@ -47,5 +57,14 @@ export class HeroDetailComponent implements OnInit{
 
     back() {
         this.location.back();
+    }
+
+    saveChanges() {
+        const editedHero: EditedHeroes = {
+            oldValues: this.hero,
+            newValues: this.newHero
+        };
+        this.store.dispatch(new Heroes.UpdateHero(editedHero));
+        this.back();
     }
 }

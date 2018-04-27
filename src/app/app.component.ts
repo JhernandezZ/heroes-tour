@@ -1,4 +1,10 @@
 import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+
+import * as fromRoot from './reducers';
+import * as fromHeroes from './reducers/heroes';
+import * as Heroes from './actions/heroes'
+import { Hero } from './shared/models/heroes';
 
 @Component({
     selector: "tyn-app",
@@ -6,9 +12,10 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
+    constructor(private store: Store<fromRoot.State>) {}
 
-    public constructor() { }
-
-    public ngOnInit(): void { }
+    ngOnInit(){ 
+        this.store.dispatch( new Heroes.GetList);
+    }
 
 }

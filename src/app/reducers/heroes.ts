@@ -1,36 +1,42 @@
 import { HeroesActions, HeroesActionTypes, GetListSuccess } from '../actions/heroes';
-import { Hero } from '../shared/models/heroes';
+import { Hero, EditedHeroes } from '../shared/models/heroes';
 
 export interface State {
-    list: Array<Hero>
+    list: Array<Hero>,
+    edited: Array<EditedHeroes>
 }
 
 const initialState: State = {
-    list: []
+    list: [],
+    edited: []
 }
 
+
+
 export function reducer(state: State = initialState, action: HeroesActions): State {
+    let newState = state;
     switch (action.type) {
-        case HeroesActionTypes.getList:
-            return state;
-        
         case HeroesActionTypes.getListSuccess:
-            state.list = action.payload
-            return state;
+            newState.list = action.payload
+            return Object.assign({}, newState);
         
-        case HeroesActionTypes.getHero:
-            let hero;
+        case HeroesActionTypes.updateHero:
+            newState.edited.push(action.payload);
             
-            state.list.forEach(
-                (item: Hero) => {
-                    if (item._nickname === action.payload) {
-                        hero = item;
-                    }
+            newState.edited.forEach(
+                (editedHero: EditedHeroes) => {
+                    newState.list.forEach(
+                        (hero: Hero, index: number) => {
+                            if (editedHero.oldValues._nickname === hero._nickname) {
+                                newState.list.splice(index, 1, editedHero.newValues)
+                            }
+                        }
+                    );
                 }
             );
-            return hero;
+            return Object.assign({}, state);
     
         default:
-            return state;
+            return Object.assign({}, state);
     }
 }
