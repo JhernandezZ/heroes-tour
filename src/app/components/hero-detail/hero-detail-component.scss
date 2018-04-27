@@ -11,9 +11,17 @@
     @include flex-parent(row, center, center, center, wrap);
     .back {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 10px;
+        left: 10px;
         cursor: pointer;
+        padding: 10px;
+        @include flex-parent(column, center, center, center, wrap);
+        @include font($white, 22px, normal);
+        @include border-radius(5px);
+        @include background-color($orange);
+        &:hover {
+            @include shadow();
+        }
     }
     .image {
         @include border-radius(30px);
