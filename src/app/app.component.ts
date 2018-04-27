@@ -7,7 +7,7 @@ import * as Heroes from './actions/heroes'
 import { Hero } from './shared/models/heroes';
 
 @Component({
-    selector: "app",
+    selector: "app-component",
     templateUrl: './app.component.html',
     styleUrls: ["./app.component.scss"]
 })
