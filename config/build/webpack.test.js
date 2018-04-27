@@ -23,6 +23,10 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: ['to-string-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|otf|ttf|eot|ico)$/,
+                use: 'file-loader?name=assets/[name].[hash].[ext]'
             }
         ]
     },
@@ -31,7 +35,9 @@ module.exports = {
         new webpack.ContextReplacementPlugin(
             /\@angular(\\|\/)core(\\|\/)esm5/,
             helpers.root('src'),
-            {}
+            {
+                '@ngrx/store': '../node_modules/@ngrx/store'
+            }
         )
     ]
 };

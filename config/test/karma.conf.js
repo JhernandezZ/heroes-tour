@@ -7,7 +7,7 @@ module.exports = function (config) {
             {
                 pattern: 'test_index.js',
                 watched: false
-            }
+            }  
         ],
         preprocessors: {
             'test_index.js': ['webpack', 'sourcemap']
