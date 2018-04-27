@@ -40,7 +40,7 @@ export class HeroDetailComponent implements OnInit{
                 (item: Hero) => {
                     if (item._nickname === params.heroName) {
                         this.hero = item;
-                        this.newHero = item;
+                        this.newHero = JSON.parse(JSON.stringify(item));
                     }
                 }
             );
