@@ -1,4 +1,4 @@
-var webpackConfig = require('./webpack.test');
+var webpackConfig = require('../build/webpack.test');
 
 module.exports = function (config) {
     config.set({
