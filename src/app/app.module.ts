@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http'
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -34,9 +33,7 @@ const appRoutes: Routes = [
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule,
         HttpClientModule,
-        HttpModule,
         RouterModule.forRoot(appRoutes),
         StoreModule.forRoot(reducers),
         EffectsModule.forRoot([HeroesEffects])
