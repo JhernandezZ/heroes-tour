@@ -1,21 +1,17 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { inject, async, TestBed, ComponentFixture } from '@angular/core/testing';
-import { StoreModule, Store, combineReducers } from '@ngrx/store';
+import { HeroesService } from './heroes.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
-import * as fromRoot from './reducers';
 
-import { AppComponent } from './app.component';
-import { HeroesService } from './shared/services/heroes.service';
-
-describe('AppComponent', () => {
-    let component: AppComponent;
-    let fixture: ComponentFixture<AppComponent>;
-    let store: Store<fromRoot.State>;
-
+describe('HeroesService', () => {
+    const api = 'https://udem.herokuapp.com';
+    let service: HeroesService;
+    let getHeroListSpy: jasmine.Spy;
     const data = [
         {
-            _name: 'Anthony Stark',
+            _name: 'Tony Stark',
             _height: 6.1,
             _picture: 'http://i.annihil.us/u/prod/marvel/i/mg/6/a0/55b6a25e654e6/standard_xlarge.jpg',
             _nickname: 'Iron Man'
@@ -70,39 +66,34 @@ describe('AppComponent', () => {
         }
     ];
 
-    let heroesServiceStub = {
-        getHeroList: () => {
-            Observable.from(data);
-        }
-    }
-
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                StoreModule.forRoot(fromRoot.reducers)
-            ],
-            declarations: [AppComponent],
-            schemas: [NO_ERRORS_SCHEMA],
-            providers: [{
-                provide: HeroesService,
-                useValue: heroesServiceStub
-            }]
-        })
-            .compileComponents();
-    }));
-
     beforeEach(() => {
-        fixture = TestBed.createComponent(AppComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
+        TestBed.configureTestingModule({
+            imports: [HttpClientTestingModule],
+            providers: [HeroesService]
+        });
+
+        service = TestBed.get(HeroesService);
+        getHeroListSpy = spyOn(service, 'getHeroList').and.returnValue(Observable.of(data));
     });
 
     it('should be created', () => {
-        expect(component).toBeTruthy();
+        expect(service).toBeTruthy();
     });
 
-    it('should be readly initialized', () => {
-        expect(fixture).toBeDefined();
-        expect(component).toBeDefined();
+    it('should has been defined an Api', () => {
+        expect(service.API_PATH).toEqual(api);
+    });
+
+    it('should have been called', (done) => { 
+        service.getHeroList();
+        expect(getHeroListSpy).toHaveBeenCalledTimes(1);
+        done();
+    });
+
+    it('should return an array with 9 items', (done) => { 
+        service.getHeroList().subscribe((res: any) => {
+            expect(res.length).toEqual(data.length);
+            done(); 
+        }); 
     });
 });

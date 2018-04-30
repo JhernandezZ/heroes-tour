@@ -60,6 +60,7 @@
     "loader-utils": "^1.1.0",
     "node-sass": "^4.9.0",
     "protractor": "~5.1.2",
+    "raw-loader": "^0.5.1",
     "reflect-metadata": "^0.1.10",
     "sass-loader": "^6.0.7",
     "source-map-loader": "^0.2.3",
